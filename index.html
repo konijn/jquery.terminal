@@ -16,25 +16,31 @@
 <body>
  
 <script> 
+
+function go( command , term )
+{
+  if (command !== '')
+  {
+    var result = window.eval(command);
+    if (result != undefined)
+    {
+      term.echo(String(result));
+    }
+  }
+}
+
 jQuery(function($, undefined) {
-    $('body').terminal(function(command, term) {
-        if (command !== '') {
-            var result = window.eval(command);
-            if (result != undefined) {
-                term.echo(String(result));
-            }
-        }
-    }, {
+    $('body').terminal( go , {
         greetings: '___________                  .__              .__\n' +   
                    '\\__    ___/__________  _____ |__| ____ _____  |  |\n' +
                    '  |    |_/ __ \\_  __ \\/     \\|  |/    \\\\__  \\ |  |\n' +   
                    '  |    |\\  ___/|  | \\/  Y Y  \\  |   |  \\/ __ \\|  |__\n' +
                    '  |____| \\___  >__|  |__|_|  /__|___|  (____  /____/\n' +
                    '             \\/            \\/        \\/     \\/      \n' ,
-        name: 'js_demo',
+        name: 'terminal',
         height: 200,
         width: 450,
-        prompt: 'js> '});
+        prompt: '$> '});
 });
 </script>
 </body>
