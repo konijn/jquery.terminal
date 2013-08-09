@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Terminal</title>
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal-min.js"></script>
+    <link href="css/jquery.terminal.css" rel="stylesheet"/>    
+  </head>
+<body>
+ 
+<script> 
+jQuery(function($, undefined) {
+    $('body').terminal(function(command, term) {
+        if (command !== '') {
+            var result = window.eval(command);
+            if (result != undefined) {
+                term.echo(String(result));
+            }
+        }
+    }, {
+        greetings: 'Javascript Interpreter',
+        name: 'js_demo',
+        height: 200,
+        width: 450,
+        prompt: 'js> '});
+});
+</script>
+</body>
+</html>
