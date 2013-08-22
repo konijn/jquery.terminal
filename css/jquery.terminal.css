@@ -83,8 +83,8 @@
     clear: both;
 }
 .terminal a {
-    color: #0F60FF;
+    color: lime;
 }
 .terminal a:hover {
-    color: red;
+    color: #0F60FF;
 }
